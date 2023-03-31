@@ -1,0 +1,171 @@
+@font-face {
+  font-family: 'PingFang';
+  src: url('path/to/PingFang-Regular.ttf');
+}
+
+
+
+body {
+    font-family: 'PingFang', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emoji-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.grid-item {
+    font-size: 2rem;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.add-mood {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.emoji-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.emoji-selector span {
+    font-size: 2rem;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.emoji-selector span.selected {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.mood-input {
+    margin-bottom: 10px;
+}
+
+.toggle-history-btn {
+    margin-bottom: 20px;
+}
+
+.mood-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.mood-list li {
+    margin-bottom: 10px;
+}
+
+.delete-btn {
+    margin-left: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* 添加一个类选择器，为emoji-selector中的span元素设置样式 */
+.emoji-selector span {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 添加一个伪类选择器，为选中的emoji-selector中的span元素设置样式 */
+.emoji-selector span.selected {
+  background-color: #f2f2f2;
+  border-color: #999;
+}
+
+
+/* 为所有按钮添加通用样式 */
+button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 14px;
+  padding: 8px 12px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* 为所有按钮添加鼠标悬停效果 */
+button:hover {
+  background-color: #45a049;
+}
+
+/* 为删除按钮添加单独的样式 */
+.delete-btn {
+  background-color: #f44336;
+}
+
+/* 为删除按钮添加鼠标悬停效果 */
+.delete-btn:hover {
+  background-color: #da190b;
+}
+
+/* 修改历史记录的字体大小和颜色 */
+.mood-list li {
+  font-size: 14px;
+  color: gray;
+}
+
+/* 缩小删除按钮的大小 */
+.delete-btn {
+  font-size: 12px;
+  padding: 4px 6px;
+}
+
+/* 修改 .details-emoji 类样式 */
+.details-emoji {
+  font-size: 2rem;
+  text-align: center;
+  display: block;
+}
+
+
+.details-text {
+  color: gray;
+}
+
+.mood-details {
+  color: gray;
+  text-align: center;
+  font-size: 14px;
+}
+
+.mood-input {
+    margin-bottom: 10px;
+    width: 300px; /* Add this line */
+}
+
+@media (max-width: 480px) {
+    /* 在这里添加适用于小屏幕设备的样式 */
+}
+
