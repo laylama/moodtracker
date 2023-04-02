@@ -60,7 +60,10 @@ body {
 }
 
 .toggle-history-btn {
+    display: none;
     margin-bottom: 20px;
+    margin-top: 10px; /* 新增这一行 */
+    width: 100%; /* 新增这一行 */
 }
 
 .mood-list {
@@ -68,6 +71,8 @@ body {
     padding: 0;
     text-align: center;
     width: 100%;
+    max-width: 300px; /* 新增这一行 */
+    margin: 0 auto; /* 新增这一行 */
 }
 
 .mood-list li {
@@ -162,10 +167,43 @@ button:hover {
 
 .mood-input {
     margin-bottom: 10px;
-    width: 300px; /* Add this line */
+    width: 280px; /* Add this line */
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: none; // Add this line
 }
 
 @media (max-width: 480px) {
     /* 在这里添加适用于小屏幕设备的样式 */
+}
+
+/* Chrome, Firefox, Opera, Safari */
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+/* Internet Explorer */
+:-ms-input-placeholder {
+  text-align: center;
+}
+
+/* Microsoft Edge */
+::-ms-input-placeholder {
+  text-align: center;
+}
+
+.choose-emoji-msg {
+    text-align: center;
+    color: gray;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.mood-text {
+    font-family: 'PingFang', sans-serif;
+    color: gray;
+    font-size: 14px;
 }
 
