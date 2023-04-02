@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Mood Tracker</title>
     <link rel="stylesheet" href="styles.css"> <!-- 如果您有一个CSS文件，请在这里引用它 -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#3f51b5">
 </head>
 <body>
     <div class="container">
@@ -20,31 +20,14 @@
                 <span>🖤</span>
                 <span>💜</span>
             </div>
-            <input type="text" class="mood-input" placeholder="Jot down your current mood!" style="display: none;">
+            <div class="choose-emoji-msg mood-text">Choose one emoji</div>
+            <input type="text" class="mood-input mood-text" placeholder="Jot down your current mood!">
             <button class="submit-btn" style="display: none;">Submit</button>
         </div>
         <button class="toggle-history-btn">Show/Hide</button>
         <ul class="mood-list hidden"></ul>
     </div>    <!-- 将应用的HTML结构添加到这里 -->
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.0/firebase-app.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
 
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyC5NQQfloy7ylVBRFd1sIVbmvPjnruQFik",
-        authDomain: "moodmood-54502.firebaseapp.com",
-        projectId: "moodmood-54502",
-        storageBucket: "moodmood-54502.appspot.com",
-        messagingSenderId: "330354863927",
-        appId: "1:330354863927:web:819caeeb22aba5df2e34b2"
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-    </script>
     <script src="scripts.js"></script> <!-- 引用您的JavaScript文件 -->
 </body>
 </html>
