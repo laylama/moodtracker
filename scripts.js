@@ -13,10 +13,13 @@ emojiSelector.addEventListener('click', (e) => {
     if (e.target !== emojiSelector) {
         emojiSpans.forEach((span) => span.classList.remove('selected'));
         e.target.classList.add('selected');
+        document.querySelector('.choose-emoji-msg').style.display = 'none'; // 添加这行
         moodInput.style.display = 'block';
         submitBtn.style.display = 'block';
     }
 });
+
+
 
 submitBtn.addEventListener('click', () => {
     const selectedEmoji = document.querySelector('.selected');
@@ -29,10 +32,12 @@ submitBtn.addEventListener('click', () => {
         saveMoodRecord(emoji, moodText, time);
         moodInput.value = '';
         selectedEmoji.classList.remove('selected');
+        document.querySelector('.choose-emoji-msg').style.display = 'block'; // 添加这行
         moodInput.style.display = 'none';
         submitBtn.style.display = 'none';
     }
 });
+
 
 function addToMoodList(emoji, moodText, time) {
     const listItem = document.createElement('li');
@@ -125,6 +130,11 @@ function showMoodDetails(emoji, moodText, time) {
         <p>${time}</p>
     `;
     document.body.appendChild(detailsContainer);
+    detailsContainer.appendChild(toggleHistoryBtn);
+
+    toggleHistoryBtn.style.display = 'block';
+    document.body.insertBefore(moodList, detailsContainer.nextSibling);
+
 }
 
 emojiGrid.addEventListener('click', (e) => {
