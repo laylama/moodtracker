@@ -6,7 +6,36 @@ const moodList = document.querySelector('.mood-list');
 const emojiGrid = document.querySelector('.emoji-grid');
 const emojiDetails = document.querySelector('.emoji-details-content');
 const toggleHistoryBtn = document.querySelector('.toggle-history-btn');
+const importBtn = document.querySelector('.import-btn');
+const exportBtn = document.querySelector('.export-btn');
 
+importBtn.addEventListener('click', () => {
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'application/json';
+    fileInput.click();
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = () => {
+            const moodRecords = JSON.parse(reader.result);
+            localStorage.setItem('moodRecords', JSON.stringify(moodRecords));
+            location.reload();
+        };
+        reader.readAsText(file);
+    });
+});
+
+exportBtn.addEventListener('click', () => {
+    const moodRecords = localStorage.getItem('moodRecords');
+    const blob = new Blob([moodRecords], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = 'mood_records.json';
+    anchor.click();
+    URL.revokeObjectURL(url);
+});
 
 
 emojiSelector.addEventListener('click', (e) => {
@@ -178,5 +207,3 @@ loadMoodRecords();
 toggleHistoryBtn.addEventListener('click', () => {
     moodList.classList.toggle('hidden');
 });
-
-
