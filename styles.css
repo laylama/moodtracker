@@ -213,3 +213,35 @@ button:hover {
     font-size: 14px;
 }
 
+
+/* 添加样式到底部 */
+.import-export-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* 替换原有的.import-btn和.export-btn样式 */
+.import-btn,
+.export-btn {
+    background-color: transparent;
+    color: gray;
+    margin: 0 5px;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+
+.footer-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
