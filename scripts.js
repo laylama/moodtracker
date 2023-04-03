@@ -9,22 +9,53 @@ const toggleHistoryBtn = document.querySelector('.toggle-history-btn');
 const importBtn = document.querySelector('.import-btn');
 const exportBtn = document.querySelector('.export-btn');
 
-importBtn.addEventListener('click', () => {
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = 'application/json';
-    fileInput.click();
-    fileInput.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.onload = () => {
-            const moodRecords = JSON.parse(reader.result);
-            localStorage.setItem('moodRecords', JSON.stringify(moodRecords));
-            location.reload();
-        };
-        reader.readAsText(file);
-    });
-});
+importBtn.addEventListener('click', importMoodRecords);
+
+
+function importMoodRecords() {
+  const fileInput = document.createElement('input');
+  fileInput.type = 'file';
+  fileInput.accept = 'application/json';
+  fileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const importedData = JSON.parse(e.target.result);
+        if (Array.isArray(importedData)) {
+          const existingMoodRecords = JSON.parse(localStorage.getItem('moodRecords')) || [];
+
+          // 过滤掉导入数据中的重复记录
+          const filteredImportedData = importedData.filter((importedRecord) => {
+            return !existingMoodRecords.some((existingRecord) => {
+              return (
+                existingRecord.time === importedRecord.time &&
+                existingRecord.emoji === importedRecord.emoji &&
+                existingRecord.moodText === importedRecord.moodText
+              );
+            });
+          });
+
+          // 合并已存在的心情记录和过滤后的导入心情记录
+          const combinedMoodRecords = existingMoodRecords.concat(filteredImportedData);
+          localStorage.setItem('moodRecords', JSON.stringify(combinedMoodRecords));
+
+          // 清空现有列表和网格，然后加载合并后的记录
+          moodList.innerHTML = '';
+          emojiGrid.innerHTML = '';
+          loadMoodRecords();
+        } else {
+          alert('导入的文件格式不正确，请导入正确的 JSON 文件。');
+        }
+      } catch (error) {
+        alert('导入的文件格式不正确，请导入正确的 JSON 文件。');
+      }
+    };
+    reader.readAsText(file);
+  });
+  fileInput.click();
+}
+
 
 exportBtn.addEventListener('click', () => {
     const moodRecords = localStorage.getItem('moodRecords');
