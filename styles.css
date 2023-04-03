@@ -63,7 +63,9 @@ body {
     display: none;
     margin-bottom: 20px;
     margin-top: 10px; /* 新增这一行 */
-    width: 100%; /* 新增这一行 */
+    width: 80%; /* 新增这一行 */
+    margin-left: auto; /* 添加此行以使按钮居中 */
+    margin-right: auto; /* 添加此行以使按钮居中 */
 }
 
 .mood-list {
@@ -176,7 +178,11 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-    /* 在这里添加适用于小屏幕设备的样式 */
+    .toggle-history-btn {
+        font-size: 14px; /* 调整字体大小 */
+        padding: 8px 12px; /* 调整内边距 */
+        width: 60%; /* 修改按钮宽度 */
+    }
 }
 
 /* Chrome, Firefox, Opera, Safari */
