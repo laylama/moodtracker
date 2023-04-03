@@ -245,3 +245,20 @@ button:hover {
   padding: 10px 0;
   box-sizing: border-box;
 }
+
+.import-btn:focus,
+.export-btn:focus,
+.import-btn:active,
+.export-btn:active {
+    background-color: transparent;
+    color: gray;
+    outline: none;
+}
+
+
+.import-btn:hover,
+.export-btn:hover {
+    background-color: transparent;
+    color: gray;
+}
+
