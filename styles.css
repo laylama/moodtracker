@@ -179,9 +179,9 @@ button:hover {
 
 @media (max-width: 480px) {
     .toggle-history-btn {
-        font-size: 14px; /* 调整字体大小 */
+        font-size: 12px; /* 调整字体大小 */
         padding: 8px 12px; /* 调整内边距 */
-        width: 60%; /* 修改按钮宽度 */
+        width: 70%; /* 修改按钮宽度 */
     }
 }
 
